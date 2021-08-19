@@ -1,0 +1,21 @@
+name: Build images-to-google-cloud-storage
+
+on:
+  push:
+    paths:
+      - .github/workflows/images-to-google-cloud-storage.yml
+      - images-to-google-cloud-storage/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: static analysis
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: images-to-google-cloud-storage
+    steps:
+      - uses: actions/checkout@v2
+      - run: shellcheck ./create-cloud-resources.sh
+      - run: shellcheck ./delete-cloud-resources.sh
+      - run: npx @redocly/openapi-cli lint openapi.yaml

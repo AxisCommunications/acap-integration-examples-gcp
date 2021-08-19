@@ -1,0 +1,39 @@
+swagger: "2.0"
+info:
+  title: Axis Image Upload
+  description: Upload images from an Axis device to GCP
+  version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+schemes:
+  - https
+paths:
+  /:
+    get:
+      operationId: get
+      summary: Validate connection
+      x-google-backend:
+        address: CLOUD_FUNCTION_URL
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: string
+    post:
+      operationId: post
+      summary: Upload an image
+      x-google-backend:
+        address: CLOUD_FUNCTION_URL
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: string
+      security:
+        - api_key: []
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
