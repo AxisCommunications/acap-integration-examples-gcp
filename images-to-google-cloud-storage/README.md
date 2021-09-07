@@ -1,10 +1,10 @@
 *Copyright (C) 2021, Axis Communications AB, Lund, Sweden. All Rights Reserved.*
 
-# Images to Google Cloud Storage
+# Images to Google Cloud Storage <!-- omit in toc -->
 
 [![Build images-to-google-cloud-storage](https://github.com/AxisCommunications/acap-integration-examples-gcp/actions/workflows/images-to-google-cloud-storage.yml/badge.svg)](https://github.com/AxisCommunications/acap-integration-examples-gcp/actions/workflows/images-to-google-cloud-storage.yml)
 
-## Table of contents
+## Table of contents <!-- omit in toc -->
 
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
