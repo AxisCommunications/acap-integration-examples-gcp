@@ -3,7 +3,7 @@
 # Images to Google Cloud Storage <!-- omit in toc -->
 
 [![Build images-to-google-cloud-storage](https://github.com/AxisCommunications/acap-integration-examples-gcp/actions/workflows/images-to-google-cloud-storage.yml/badge.svg)](https://github.com/AxisCommunications/acap-integration-examples-gcp/actions/workflows/images-to-google-cloud-storage.yml)
-![Ready for production](https://img.shields.io/badge/Ready%20for%20production-Yes-brightgreen)
+![Ready for use in production](https://img.shields.io/badge/Ready%20for%20use%20in%20production-Yes-brightgreen)
 
 ## Table of contents <!-- omit in toc -->
 
