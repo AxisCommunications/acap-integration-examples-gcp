@@ -1,18 +1,23 @@
 *Copyright (C) 2021, Axis Communications AB, Lund, Sweden. All Rights Reserved.*
 
-# Images to Google Cloud Storage <!-- omit in toc -->
+<!-- omit in toc -->
+# Images to Google Cloud Storage
 
 [![Build images-to-google-cloud-storage](https://github.com/AxisCommunications/acap-integration-examples-gcp/actions/workflows/images-to-google-cloud-storage.yml/badge.svg)](https://github.com/AxisCommunications/acap-integration-examples-gcp/actions/workflows/images-to-google-cloud-storage.yml)
 ![Ready for use in production](https://img.shields.io/badge/Ready%20for%20use%20in%20production-Yes-brightgreen)
 
-## Table of contents <!-- omit in toc -->
+<!-- omit in toc -->
+## Table of contents
 
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [File structure](#file-structure)
 - [Instructions](#instructions)
+  - [Deploying the GCP resources](#deploying-the-gcp-resources)
+  - [Configuring the camera](#configuring-the-camera)
 - [Cleanup](#cleanup)
 - [Troubleshooting](#troubleshooting)
+  - [No images are sent to Google Cloud Storage](#no-images-are-sent-to-google-cloud-storage)
 - [License](#license)
 
 ## Overview
