@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ $# -ne 3 ]] ; then
+if [[ $# -ne 3 ]]; then
   echo "Error: Unsupported number of arguments"
   echo
   echo "USAGE:"
@@ -84,8 +84,7 @@ existing_service_account=$(gcloud iam service-accounts list \
   --filter="email='$service_account_email'" \
   --format="value(email)")
 
-if [ -z "$existing_service_account" ]
-then
+if [ -z "$existing_service_account" ]; then
   echo "Service account [$service_account_email] does not exist, creating it..."
   gcloud iam service-accounts create "$common_name" \
     --description="Service account for Axis image upload" \
@@ -123,8 +122,7 @@ existing_api=$(gcloud api-gateway apis list \
   --filter="name=\"$api_name\"" \
   --format="value(name)")
 
-if [ -z "$existing_api" ]
-then
+if [ -z "$existing_api" ]; then
   echo "API [$common_name] does not exist, creating it..."
   gcloud api-gateway apis create "$common_name"
 fi
@@ -136,8 +134,7 @@ existing_api_config=$(gcloud api-gateway api-configs list \
   --filter="name=\"$config_name\"" \
   --format="value(name)")
 
-if [ -z "$existing_api_config" ]
-then
+if [ -z "$existing_api_config" ]; then
   echo "API Config [$config_id] does not exist in API [$common_name], creating it..."
   gcloud api-gateway api-configs create "$config_id" \
     --api="$common_name" \
@@ -154,8 +151,7 @@ existing_api_gateway=$(gcloud api-gateway gateways list \
   --filter="name=\"$gateway_name\" AND apiConfig=\"$config_name\"" \
   --format="value(name)")
 
-if [ -z "$existing_api_gateway" ]
-then
+if [ -z "$existing_api_gateway" ]; then
   echo "API Gateway [$common_name] does not exist, creating it..."
   gcloud api-gateway gateways create "$common_name" \
     --api="$common_name" \
@@ -177,8 +173,7 @@ existing_api_key=$(gcloud alpha services api-keys list \
   --filter="display_name=\"$common_name\"" \
   --format="value(display_name)")
 
-if [ -z "$existing_api_key" ]
-then
+if [ -z "$existing_api_key" ]; then
   echo "API key [$common_name] does not exist, creating it..."
   gcloud alpha services api-keys create \
     --display-name="$common_name" \
