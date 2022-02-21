@@ -73,12 +73,12 @@ Let's deploy the GCP resources required to receive images sent from a camera. Al
 
 ```sh
 gcloud services enable \
-  apigateway.googleapis.com \
-  servicemanagement.googleapis.com \
-  servicecontrol.googleapis.com \
-  cloudfunctions.googleapis.com \
-  cloudbuild.googleapis.com \
-  storage.googleapis.com
+    apigateway.googleapis.com \
+    servicemanagement.googleapis.com \
+    servicecontrol.googleapis.com \
+    cloudfunctions.googleapis.com \
+    cloudbuild.googleapis.com \
+    storage.googleapis.com
 ```
 
 In order to programmatically create API-keys via the gcloud command-line tool we must install the alpha component using the following command.

@@ -181,7 +181,7 @@ if [ -z "$existing_api_key" ]; then
 fi
 
 api_key_name=$(gcloud alpha services api-keys list \
-    --filter="display_name='$common_name'" --format="value(name)")
+  --filter="display_name='$common_name'" --format="value(name)")
 
 api_key_value=$(gcloud alpha services api-keys get-key-string "$api_key_name" \
   --format="value(keyString)")
