@@ -114,7 +114,7 @@ gcloud functions add-iam-policy-binding "$common_name" \
 echo "Creating OpenAPI document for the API Gateway deployment..."
 function_url=$(gcloud functions describe "$common_name" --region "$location" --format="value(httpsTrigger.url)")
 openapi_spec=openapi-$common_name.yaml
-sed "s,CLOUD_FUNCTION_URL,$function_url,g" openapi.yaml > "$openapi_spec"
+sed "s,CLOUD_FUNCTION_URL,$function_url,g" openapi.yaml >"$openapi_spec"
 
 echo "Checking if API [$common_name] exists..."
 api_name=projects/$project/locations/global/apis/$common_name
