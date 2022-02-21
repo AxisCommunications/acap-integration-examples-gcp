@@ -81,7 +81,7 @@ gcloud services enable \
   storage.googleapis.com
 ```
 
-In order to programmatically create API-keys via the gcloud command line tool we must install the alpha component using the following command.
+In order to programmatically create API-keys via the gcloud command-line tool we must install the alpha component using the following command.
 
 ```sh
 gcloud components install alpha
