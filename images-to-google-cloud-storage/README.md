@@ -13,11 +13,11 @@
 - [Prerequisites](#prerequisites)
 - [File structure](#file-structure)
 - [Instructions](#instructions)
-  - [Deploying the GCP resources](#deploying-the-gcp-resources)
-  - [Configuring the camera](#configuring-the-camera)
+    - [Deploying the GCP resources](#deploying-the-gcp-resources)
+    - [Configuring the camera](#configuring-the-camera)
 - [Cleanup](#cleanup)
 - [Troubleshooting](#troubleshooting)
-  - [No images are sent to Google Cloud Storage](#no-images-are-sent-to-google-cloud-storage)
+    - [No images are sent to Google Cloud Storage](#no-images-are-sent-to-google-cloud-storage)
 - [License](#license)
 
 ## Overview
@@ -43,6 +43,7 @@ The camera sends images to the Cloud Function via the API Gateway. Requests are 
 
 ## File structure
 
+<!-- markdownlint-disable MD040 -->
 ```
 images-to-google-cloud-storage
 ├── src
@@ -61,7 +62,7 @@ The instructions are divided into two parts. The first part covers deploying the
 
 To start of, make sure to clone the repository and navigate into the example directory.
 
-```bash
+```sh
 git clone https://github.com/AxisCommunications/acap-integration-examples-gcp.git
 cd acap-integration-examples-gcp/images-to-google-cloud-storage
 ```
@@ -70,7 +71,7 @@ cd acap-integration-examples-gcp/images-to-google-cloud-storage
 
 Let's deploy the GCP resources required to receive images sent from a camera. All resources are created using the bash script `create-cloud-resources.sh`. Before you run the script, enable the required GCP resources for your GCP project.
 
-```bash
+```sh
 gcloud services enable \
   apigateway.googleapis.com \
   servicemanagement.googleapis.com \
@@ -82,18 +83,19 @@ gcloud services enable \
 
 In order to programmatically create API-keys via the gcloud command line tool we must install the alpha component using the following command.
 
-```bash
+```sh
 gcloud components install alpha
 ```
 
 The `create-cloud-resources.sh` script should be called with the following positional arguments.
 
 1. `project` - The name of the GCP project where all resources should be created.
-2. `name` - A name postfix that will be attached to relevant resource names to avoid naming conflicts.
-3. `location` - The GCP location where resources will be created. A subset of available locations are supported due to restrictions imposed by some of the GCP resources. Use one of: `asia-northeast1`, `australia-southeast1`, `europe-west1`, `europe-west2`, `us-east1`, `us-east4`, `us-central1`, `us-west2`, `us-west3`, `us-west4`.
+1. `name` - A name postfix that will be attached to relevant resource names to avoid naming conflicts.
+1. `location` - The GCP location where resources will be created. A subset of available locations are supported due to restrictions imposed by some of the GCP resources. Use one of: `asia-northeast1`, `australia-southeast1`, `europe-west1`, `europe-west2`, `us-east1`, `us-east4`, `us-central1`, `us-west2`, `us-west3`, `us-west4`.
 
 The example output below indicates that the resources have been created successfully. The script runs a number of gcloud commands to check the existence of previously deployed resources, but if no resources are found a warning is output to the console. These warnings are expected and do not indicate a problem with the script.
 
+<!-- markdownlint-disable MD040 -->
 ```
 $ ./create-cloud-resources.sh my-gcp-project xyz us-east1
 > Setting default GCP project to [my-gcp-project]
@@ -172,11 +174,11 @@ Now let's navigate to the *Rules* tab. Here we'll finally create a rule that com
 
 - **Name**: `Images to Google Cloud Storage`
 - **Condition**: `Pulse`
-  - **Pulse**: `Every Minute`
+    - **Pulse**: `Every Minute`
 - **Action**: `Send images through HTTPS`
-  - **Recipient**: `Google Cloud Storage`
-  - **Maximum images**: `1`
-  - **Custom CGI parameters**: Back when we deployed the GCP resources we ended up with two output values, the second value was the API key. Enter the following value in this field: `key=<api key value>`, replace `<api key value>` with the value of your API key.
+    - **Recipient**: `Google Cloud Storage`
+    - **Maximum images**: `1`
+    - **Custom CGI parameters**: Back when we deployed the GCP resources we ended up with two output values, the second value was the API key. Enter the following value in this field: `key=<api key value>`, replace `<api key value>` with the value of your API key.
 
 Click the *Save* button.
 
@@ -186,6 +188,7 @@ At this point the rule will become active and send an image to Google Cloud Stor
 
 To delete resources from this example, run the script `delete-cloud-resources.sh`. This script will delete all resources except the storage bucket where all uploaded images are stored. Run the script using the same input parameters you used for the `create-cloud-resources.sh` script.
 
+<!-- markdownlint-disable MD040 -->
 ```
 $ ./delete-cloud-resources.sh my-gcp-project xyz us-east1
 > Setting default GCP project to [my-gcp-project]

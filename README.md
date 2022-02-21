@@ -17,7 +17,7 @@ The repository contains a set of examples, each tailored towards a specific prob
 If you find yourself wishing there was another example more relevant to your use case, please don't hesitate to [start a discussion](https://github.com/AxisCommunications/acap-integration-examples-gcp/discussions/new) or [open a new issue](https://github.com/AxisCommunications/acap-integration-examples-gcp/issues/new/choose).
 
 - [images-to-google-cloud-storage](./images-to-google-cloud-storage/)
-  - This example covers sending images from a camera to Google Cloud Storage
+    - This example covers sending images from a camera to Google Cloud Storage
 
 ## License
 
