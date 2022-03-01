@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ $# -ne 3 ]] ; then
+if [[ $# -ne 3 ]]; then
   echo "Error: Unsupported number of arguments"
   echo
   echo "USAGE:"
@@ -78,8 +78,7 @@ existing_api_key=$(gcloud alpha services api-keys list \
   --filter="display_name=\"$common_name\"" \
   --format="value(name)")
 
-if [ -n "$existing_api_key" ]
-then
+if [ -n "$existing_api_key" ]; then
   echo "Deleting API key [$common_name]..."
   gcloud alpha services api-keys delete "$existing_api_key"
 fi
@@ -94,8 +93,7 @@ existing_api_gateway=$(gcloud api-gateway gateways list \
   --filter="name=\"$gateway_name\" AND apiConfig=\"$config_name_proj_number\"" \
   --format="value(name)")
 
-if [ -n "$existing_api_gateway" ]
-then
+if [ -n "$existing_api_gateway" ]; then
   echo "Deleting API Gateway [$gateway_name]..."
   gcloud api-gateway gateways delete "$existing_api_gateway" --location="$location" --quiet
 fi
@@ -104,8 +102,7 @@ existing_api_config=$(gcloud api-gateway api-configs list \
   --filter="name=\"$config_name\"" \
   --format="value(name)")
 
-if [ -n "$existing_api_config" ]
-then
+if [ -n "$existing_api_config" ]; then
   echo "Deleting API Config [$config_id]..."
   gcloud api-gateway api-configs delete "$config_name" --quiet
 fi
@@ -115,8 +112,7 @@ existing_api=$(gcloud api-gateway apis list \
   --filter="name=\"$api_name\"" \
   --format="value(name)")
 
-if [ -n "$existing_api" ]
-then
+if [ -n "$existing_api" ]; then
   echo "Deleting API [$common_name]..."
   gcloud api-gateway apis delete "$common_name" --quiet
 fi
@@ -126,8 +122,7 @@ existing_function=$(gcloud functions list \
   --filter="name='$function_name'" \
   --format="value(name)")
 
-if [ -n "$existing_function" ]
-then
+if [ -n "$existing_function" ]; then
   echo "Deleting function [$common_name]..."
   gcloud functions delete "$common_name" --region="$location" --quiet
 fi
@@ -137,8 +132,7 @@ existing_service_account=$(gcloud iam service-accounts list \
   --filter="email='$service_account_email'" \
   --format="value(email)")
 
-if [ -n "$existing_service_account" ]
-then
+if [ -n "$existing_service_account" ]; then
   echo "Deleting service account [$service_account_email]..."
   gcloud iam service-accounts delete "$service_account_email" --quiet
 fi
