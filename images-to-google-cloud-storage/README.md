@@ -12,6 +12,7 @@
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [File structure](#file-structure)
+- [Command-line interface](#command-line-interface)
 - [Instructions](#instructions)
   - [Deploying the GCP resources](#deploying-the-gcp-resources)
   - [Configuring the camera](#configuring-the-camera)
@@ -54,6 +55,35 @@ images-to-google-cloud-storage
 ├── delete-cloud-resources.sh - Bash script to delete GCP resources
 └── openapi.yaml - OpenAPI specification template
 ```
+
+## Command-line interface
+
+To follow the procedures in this example you need a command-line interface or shell to run commands.
+
+In some command listings, the commands are described as is, ready to be copied to your command-line interface and executed.
+
+<!-- markdownlint-disable MD040 -->
+```
+this is a command
+```
+
+In other command listings, commands are preceded by a prompt symbol (`$`) when the output of the command also is of importance.
+
+<!-- markdownlint-disable MD040 -->
+```
+$ this is a command
+> This is output
+```
+
+Command listings where your input is required are marked using angle brackets (`<` and `>`).
+
+```sh
+some-command <your input>
+```
+
+For long commands, we use an escape character (`\`) to split a command over multiple lines.
+
+On Linux and macOS, use your preferred shell and package manager. On Windows 10, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) to get a Windows-integrated version of Ubuntu and Bash.
 
 ## Instructions
 
