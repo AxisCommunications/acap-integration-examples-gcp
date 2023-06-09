@@ -9,7 +9,7 @@
 <!-- omit in toc -->
 ## Table of contents
 
-- [Overview 1](#overview-1)
+- [Overview 2](#overview-2)
 - [Prerequisites](#prerequisites)
 - [File structure](#file-structure)
 - [Command-line interface](#command-line-interface)
@@ -21,7 +21,7 @@
     - [No images are sent to Google Cloud Storage](#no-images-are-sent-to-google-cloud-storage)
 - [License](#license)
 
-## Overview 1
+## Overview 2
 
 In this example we create an application that sends images from an Axis camera to Google Cloud Storage. We start by deploying the infrastructure in the cloud, and then continue with configuring the camera.
 
